@@ -1,0 +1,14 @@
+# Rust
+/target/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.so
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+# venvs live outside the repo
+.venv/
+venv/

@@ -1,0 +1,21 @@
+[workspace]
+members = ["babel-core"]
+resolver = "2"
+
+[package]
+name = "babel-rust"
+version = "2.18.0"
+edition = "2021"
+description = "Rust port of the python-babel formatting hot path (numbers/currency/dates), with Python bindings"
+license = "BSD-3-Clause"
+repository = "https://github.com/John-Cusack/babel-rust"
+homepage = "https://babel.pocoo.org/"
+
+[lib]
+name = "_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+babel-core = { version = "2.18.0", path = "babel-core" }
+pyo3 = { version = "0.24", features = ["extension-module"] }
+serde_json = "1"

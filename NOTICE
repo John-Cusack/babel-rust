@@ -1,0 +1,21 @@
+babel-rust: Rust port of the python-babel hot path (number/currency/date
+formatting kernels + pattern parsing) with Python bindings.
+
+Upstream project:
+
+  python-babel/babel — https://github.com/python-babel/babel
+  Copyright (c) 2013-2026 by the Babel Team, see AUTHORS for more information.
+  Licensed under the BSD 3-Clause License (see LICENSE, the upstream text).
+
+The pure-Python fallback in this repository (`babel/numbers.py`,
+`babel/dates.py` fallback paths) executes the upstream 2.18.0 logic
+verbatim, and the non-hot-path modules are byte-identical copies of the
+upstream 2.18.0 sources.
+
+Locale data (`babel/locale-data/*.dat`, `babel/global.dat`) is data
+derived from the Unicode Common Locale Data Repository (CLDR) and is
+used under the Unicode License Agreement — Data Files and Software;
+see LICENSE.unicode. No second copy of CLDR is vendored into the Rust
+crate: at runtime the extension receives small per-locale ingredient
+bundles (pattern strings, symbols, names) extracted from the installed
+data files above, which remain the single source of truth.

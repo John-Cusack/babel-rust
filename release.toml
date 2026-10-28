@@ -1,0 +1,26 @@
+# Release configuration for the `babel` converted project.
+
+[release]
+schema = 1
+project = "babel"
+rust_crate = "babel-core"
+pypi_dist = "babel-rust"
+python_import = "babel"
+version = "2.18.0"
+requires_python = ">=3.10"
+python_versions = ["3.10", "3.11", "3.12", "3.13"]
+platforms = ["ubuntu-22.04", "macos-14", "windows-2022"]
+github_repo = "John-Cusack/babel-rust"
+release_workflow = ".github/workflows/release.yml"
+pypi_environment = "pypi"
+testpypi_environment = "testpypi"
+license_spdx = "BSD-3-Clause"
+upstream = "python-babel/babel"
+upstream_url = "https://github.com/python-babel/babel"
+upstream_license = "BSD-3-Clause"
+upstream_authors = "Babel Team"
+smoke_exprs = [
+  "babel.numbers.format_decimal(1234567.891, locale='en_US') == '1,234,567.891'",
+  "babel.numbers.format_currency(1099.98, 'USD', locale='en_US') == '$1,099.98'",
+  "babel.dates.format_date(__import__('datetime').date(2007, 4, 1), locale='en_US') == 'Apr 1, 2007'",
+]
